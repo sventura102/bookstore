@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const port = 3000
 const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
-//const swaggerDocument = require('./swagger-output.json');
+const swaggerDocument = require('./swagger-output.json');
 
 app
-  //.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   .use(bodyParser.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

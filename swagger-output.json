@@ -5,7 +5,7 @@
     "description": "Book Collectioon API",
     "version": "1.0.0"
   },
-  "host": "https://books-z7vs.onrender.com/",
+  "host": "books-z7vs.onrender.com/",
   "basePath": "/",
   "schemes": [
     "https"
