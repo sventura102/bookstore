@@ -11,7 +11,7 @@ const getAll = async (req, res, next) => {
 };
 
 const getOne = async(req, res, next) => {
-    const byId = ObjectId(req.params.id);
+    const byId = new ObjectId(req.params.id);
     const one = await mongodb.getDb().db('books').collection('book-list').find({_id: byId});
     one.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
@@ -29,7 +29,7 @@ const createBook = async(req, res, next) => {
 };
 
 const updateBook = async(req, res, next) => {
-  const byId = ObjectId(req.params.id);
+  const byId = new ObjectId(req.params.id);
   const book = {title: req.body.title, author: req.body.author, year: req.body.year, pages: req.body.pages};
   const response = await mongodb.getDb().db('books').collection('book-list').replaceOne({_id: byId}, book);
   console.log(response);
@@ -40,7 +40,7 @@ const updateBook = async(req, res, next) => {
 }
 
 const deleteBook = async(req, res, next) => {
-  const byId = ObjectId(req.params.id);
+  const byId = new ObjectId(req.params.id);
   const response = await mongodb.getDb().db('books').collection('book-list').deleteOne({_id: byId}, true)
   if (response) {
     res.status(200).send();
