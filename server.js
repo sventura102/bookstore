@@ -11,7 +11,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: process.env.CLIENT_SECRET,
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://books-z7vs.onrender.com',
   clientID: process.env.clientID,
   issuerBaseURL: 'https://dev-lk7oot47rptfzc7y.us.auth0.com'
 };
